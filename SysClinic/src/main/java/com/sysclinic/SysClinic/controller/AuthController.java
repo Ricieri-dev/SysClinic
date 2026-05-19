@@ -4,6 +4,7 @@ import com.sysclinic.SysClinic.dto.LoginRequestDTO;
 import com.sysclinic.SysClinic.dto.RegisterRequestDTO;
 import com.sysclinic.SysClinic.model.Usuario;
 import com.sysclinic.SysClinic.service.AuthService;
+import com.sysclinic.SysClinic.dto.LoginResponseDTO;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,11 +30,16 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Usuario> login(
+    public ResponseEntity<LoginResponseDTO> login(
             @Valid @RequestBody LoginRequestDTO dto) {
 
-        Usuario usuario = authService.autenticar(dto);
+        String token = authService.autenticar(dto);
 
-        return ResponseEntity.ok(usuario);
+        LoginResponseDTO response =
+                LoginResponseDTO.builder()
+                        .token(token)
+                        .build();
+
+        return ResponseEntity.ok(response);
     }
 }
