@@ -1,10 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Consultas - SysClinic</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <style>
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .header {
+            background: #0d6efd;
+            color: white;
+            padding: 20px;
+        }
+
+    </style>
+
 </head>
+
 <body>
+
+<div class="header d-flex justify-content-between align-items-center">
+
+    <h2>Consultas</h2>
+
+    <button class="btn btn-light"
+            onclick="logout()">
+
+        Sair
+
+    </button>
+
+</div>
+
+<div class="container mt-4">
+
+    <!-- FORMULÁRIO -->
+
+    <div class="card shadow p-4 mb-4">
+
+        <h4 class="mb-4">Agendar Consulta</h4>
+
+        <div class="row g-3">
+
+            <!-- PACIENTE -->
+
+            <div class="col-md-3">
+
+                <label class="form-label">
+                    Paciente
+                </label>
+
+                <select id="pacienteId"
+                        class="form-select">
+
+                    <option value="">
+                        Selecione
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- MÉDICO -->
+
+            <div class="col-md-3">
+
+                <label class="form-label">
+                    Médico
+                </label>
+
+                <select id="medicoId"
+                        class="form-select">
+
+                    <option value="">
+                        Selecione
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- DATA/HORA -->
+
+            <div class="col-md-2">
+
+                <label class="form-label">
+                    Data/Hora
+                </label>
+
+                <input type="datetime-local"
+                       id="dataHora"
+                       class="form-control">
+
+            </div>
+
+            <!-- STATUS -->
+
+            <div class="col-md-2">
+
+                <label class="form-label">
+                    Status
+                </label>
+
+                <select id="status"
+                        class="form-select">
+
+                    <option value="AGENDADA">
+                        AGENDADA
+                    </option>
+
+                    <option value="REALIZADA">
+                        REALIZADA
+                    </option>
+
+                    <option value="CANCELADA">
+                        CANCELADA
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- BOTÃO -->
+
+            <div class="col-md-2 d-flex align-items-end">
+
+                <button class="btn btn-success w-100"
+                        onclick="salvarConsulta()">
+
+                    Salvar
+
+                </button>
+
+            </div>
+
+            <!-- OBSERVAÇÃO -->
+
+            <div class="col-md-12">
+
+                <label class="form-label">
+                    Observação
+                </label>
+
+                <textarea id="observacao"
+                          class="form-control"
+                          rows="3"
+                          placeholder="Observações da consulta">
+
+                </textarea>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- TABELA -->
+
+    <div class="card shadow p-4">
+
+        <table class="table table-striped">
+
+            <thead class="table-dark">
+
+            <tr>
+
+                <th>ID</th>
+                <th>Paciente</th>
+                <th>Médico</th>
+                <th>Data/Hora</th>
+                <th>Status</th>
+                <th>Observação</th>
+                <th>Ações</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody id="tabelaConsultas">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="/js/consultas.js"></script>
 
 </body>
 </html>

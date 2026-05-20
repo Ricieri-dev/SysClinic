@@ -29,7 +29,7 @@ async function fazerLogin() {
 
     localStorage.setItem("token", data.token);
 
-    alert("Login realizado com sucesso!");
+    window.location.href = "/pacientes-view";
 
     console.log(data.token);
 }
