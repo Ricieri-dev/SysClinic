@@ -11,4 +11,22 @@ public class ViewController {
 
         return "login";
     }
+
+    @GetMapping("/pacientes-view")
+    public String pacientes() {
+
+        return "pacientes";
+    }
+
+    @GetMapping("/medicos-view")
+    public String medicos() {
+
+        return "medicos";
+    }
+
+    @GetMapping("/consultas-view")
+    public String consultas() {
+
+        return "consultas";
+    }
 }
