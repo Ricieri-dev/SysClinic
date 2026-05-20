@@ -24,106 +24,181 @@
 
 </head>
 
-<body>
+<body class="bg-light">
 
-<div class="header d-flex justify-content-between align-items-center">
+<div class="container-fluid">
 
-    <h2>Médicos</h2>
+    <div class="row vh-100">
 
-    <button class="btn btn-light"
-            onclick="logout()">
+        <!-- SIDEBAR -->
 
-        Sair
+        <div class="col-2 bg-dark text-white p-4 d-flex flex-column">
 
-    </button>
+            <h2 class="mb-5">
+                SysClinic
+            </h2>
 
-</div>
+            <div class="d-grid gap-3">
 
-<div class="container mt-4">
+                <a href="/pacientes-view"
+                   class="btn btn-outline-light text-start">
 
-    <!-- FORMULÁRIO -->
+                    Pacientes
 
-    <div class="card shadow p-4 mb-4">
+                </a>
 
-        <h4 class="mb-4">Cadastrar Médico</h4>
+                <a href="/medicos-view"
+                   class="btn btn-outline-light text-start active">
 
-        <div class="row">
+                    Médicos
 
-            <div class="col-md-3">
-                <input type="text"
-                       id="nome"
-                       class="form-control"
-                       placeholder="Nome">
+                </a>
+
+                <a href="/consultas-view"
+                   class="btn btn-outline-light text-start">
+
+                    Consultas
+
+                </a>
+
             </div>
 
-            <div class="col-md-2">
-                <input type="text"
-                       id="especialidade"
-                       class="form-control"
-                       placeholder="Especialidade">
-            </div>
+            <button class="btn btn-danger mt-auto"
+                    onclick="logout()">
 
-            <div class="col-md-2">
-                <input type="text"
-                       id="crm"
-                       class="form-control"
-                       placeholder="CRM">
-            </div>
+                Sair
 
-            <div class="col-md-2">
-                <input type="text"
-                       id="telefone"
-                       class="form-control"
-                       placeholder="Telefone">
-            </div>
-
-            <div class="col-md-2">
-                <input type="email"
-                       id="email"
-                       class="form-control"
-                       placeholder="Email">
-            </div>
-
-            <div class="col-md-1">
-                <button class="btn btn-success w-90"
-                        onclick="cadastrarMedico()">
-
-                    Salvar
-
-                </button>
-            </div>
+            </button>
 
         </div>
 
-    </div>
+        <!-- CONTEÚDO -->
 
-    <!-- TABELA -->
+        <div class="col-10 p-4">
 
-    <div class="card shadow p-4">
+            <!-- HEADER -->
 
-        <table class="table table-striped">
+            <div class="d-flex justify-content-between align-items-center mb-4">
 
-            <thead class="table-dark">
+                <h1>
+                    Médicos
+                </h1>
 
-            <tr>
+                <span class="text-secondary fs-4">
+                    Painel Administrativo
+                </span>
 
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Especialidade</th>
-                <th>CRM</th>
-                <th>Email</th>
-                <th>Telefone</th>
-                <th>Ações</th>
+            </div>
 
-            </tr>
+            <!-- FORMULÁRIO -->
 
-            </thead>
+            <div class="card shadow-sm border-0 mb-4">
 
-            <tbody id="tabelaMedicos">
+                <div class="card-body">
 
-            </tbody>
+                    <h3 class="mb-4">
+                        Cadastrar Médico
+                    </h3>
 
-        </table>
+                    <div class="row g-3">
+
+                        <div class="col-md-3">
+
+                            <input type="text"
+                                   id="nome"
+                                   class="form-control"
+                                   placeholder="Nome">
+
+                        </div>
+
+                        <div class="col-md-2">
+
+                            <input type="text"
+                                   id="especialidade"
+                                   class="form-control"
+                                   placeholder="Especialidade">
+
+                        </div>
+
+                        <div class="col-md-2">
+
+                            <input type="text"
+                                   id="crm"
+                                   class="form-control"
+                                   placeholder="CRM">
+
+                        </div>
+
+                        <div class="col-md-2">
+
+                            <input type="text"
+                                   id="telefone"
+                                   class="form-control"
+                                   placeholder="Telefone">
+
+                        </div>
+
+                        <div class="col-md-2">
+
+                            <input type="email"
+                                   id="email"
+                                   class="form-control"
+                                   placeholder="Email">
+
+                        </div>
+
+                        <div class="col-md-1">
+
+                            <button class="btn btn-success w-100"
+                                    onclick="cadastrarMedico()">
+
+                                Salvar
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- TABELA -->
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body">
+
+                    <table class="table table-striped align-middle">
+
+                        <thead class="table-dark">
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Especialidade</th>
+                            <th>CRM</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                            <th>Ações</th>
+
+                        </tr>
+
+                        </thead>
+
+                        <tbody id="tabelaMedicos">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
